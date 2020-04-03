@@ -1,0 +1,16 @@
+﻿@model SoftUniQuizSystem.Web.ViewModels.Administration.Dashboard.ExamDeleteViewModel
+@{
+    this.ViewData["Title"] = "Admin dashboard";
+}
+
+
+<form method="delete" action="@Url.Action("DeleteProduct")">
+
+    <input name="productID" type="hidden" value="@Model.Id" />
+    <input name="subscriptionID" type="hidden" value="@Model.Title" />
+
+    <button type="submit" class="btn btn-warning">
+        Tabort <i class="fa fa-trash trashIcon" aria-hidden="true"></i>
+    </button>
+
+</form>
