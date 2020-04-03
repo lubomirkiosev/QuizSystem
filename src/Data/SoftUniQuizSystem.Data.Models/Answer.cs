@@ -6,10 +6,8 @@
     {
         public int QuestionId { get; set; }
 
-        public Question Question { get; set; }
+        public virtual Question Question { get; set; }
 
         public string Content { get; set; }
-
-        public bool TrueOrFalse { get; set; }
     }
 }

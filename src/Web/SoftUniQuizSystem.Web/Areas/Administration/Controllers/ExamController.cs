@@ -38,13 +38,13 @@
             }
 
             var examId = await this.examService.CreateAsync(input.Title, input.CourseId, input.NumberOfQuestions, input.TimeLimit);
-            return this.RedirectToAction("/");
+            return this.RedirectToAction("Index", "Dashboard");
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var exam = this.examService.GetById<Exam>(id);
+            var exam = this.examService.GetById<ExamDeleteViewModel>(id);
 
             if (exam == null)
             {
@@ -54,13 +54,12 @@
             return this.View(exam);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var exam = this.examService.GetById<Exam>(id);
-        //    this.examService.Delete(exam);
-        //    return this.RedirectToAction(nameof(Index));
-        //}
+        [HttpPost]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var exam = this.examService.GetById<Exam>(id);
+            this.examService.Delete(exam);
+            return this.RedirectToAction("Index", "Dashboard");
+        }
     }
 }

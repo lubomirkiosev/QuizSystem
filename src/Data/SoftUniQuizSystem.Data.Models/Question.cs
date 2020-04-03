@@ -14,5 +14,7 @@
         public string Content { get; set; }
 
         public ICollection<Answer> Answers { get; set; }
+
+        public TrueAnswer TrueAnswer { get; set; }
     }
 }
