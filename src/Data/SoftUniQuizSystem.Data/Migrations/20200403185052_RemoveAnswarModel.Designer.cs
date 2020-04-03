@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SoftUniQuizSystem.Data;
 
 namespace SoftUniQuizSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200403185052_RemoveAnswarModel")]
+    partial class RemoveAnswarModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -384,7 +386,7 @@ namespace SoftUniQuizSystem.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CourseId")
+                    b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
@@ -527,11 +529,9 @@ namespace SoftUniQuizSystem.Data.Migrations
 
             modelBuilder.Entity("SoftUniQuizSystem.Data.Models.Question", b =>
                 {
-                    b.HasOne("SoftUniQuizSystem.Data.Models.Course", "Course")
+                    b.HasOne("SoftUniQuizSystem.Data.Models.Course", null)
                         .WithMany("Questions")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("CourseId");
 
                     b.HasOne("SoftUniQuizSystem.Data.Models.Exam", null)
                         .WithMany("Questions")

@@ -1,0 +1,38 @@
+﻿@model SoftUniQuizSystem.Web.ViewModels.Administration.Questions.CreateQuestionsViewModel
+@{
+    this.ViewData["Title"] = "Admin dashboard";
+}
+
+    <form method="post" asp-action="Create">
+        <div>
+            <label asp-for="CourseName"></label>
+            <input asp-for="CourseName" class="form-control" />
+            <span asp-validation-for="CourseName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Content"></label>
+            <input asp-for="Content" class="form-control"></input>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="AnswerA"></label>
+            <input asp-for="AnswerA" class="form-control" />
+            <span asp-validation-for="AnswerA" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="AnswerC"></label>
+            <input asp-for="AnswerC" class="form-control" />
+            <span asp-validation-for="AnswerC" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="TrueAnswer"></label>
+            <select asp-for="TrueAnswer" class="form-control">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+        </div>
+        <hr />
+        <input type="submit" class="btn btn-primary" />
+    </form>

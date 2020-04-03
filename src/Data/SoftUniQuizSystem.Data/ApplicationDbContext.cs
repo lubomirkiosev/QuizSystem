@@ -33,8 +33,6 @@
 
         public DbSet<Exam> Exams { get; set; }
 
-        public DbSet<Answer> Answers { get; set; }
-
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

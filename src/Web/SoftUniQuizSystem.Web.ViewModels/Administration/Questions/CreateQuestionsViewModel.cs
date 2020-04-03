@@ -1,14 +1,12 @@
-﻿namespace SoftUniQuizSystem.Data.Models
+﻿namespace SoftUniQuizSystem.Web.ViewModels.Administration.Questions
 {
+    using SoftUniQuizSystem.Data.Models;
+    using SoftUniQuizSystem.Services.Mapping;
     using System.Collections.Generic;
 
-    using SoftUniQuizSystem.Data.Common.Models;
-
-    public class Question : BaseDeletableModel<int>
+    public class CreateQuestionsViewModel : IMapTo<Question>
     {
-        public int CourseId { get; set; }
-
-        public virtual Course Course { get; set; }
+        public string CourseName { get; set; }
 
         public string Content { get; set; }
 

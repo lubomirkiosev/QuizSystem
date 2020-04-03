@@ -21,15 +21,15 @@
         {
             <tr>
                 <th scope="row">@i</th>
-                <td></td>
+                <td>Star</td>
                 <td>@exam.Title</td>
                 <td>@exam.NumberOfQuestions</td>
                 <td>@exam.TimeLimit</td>
-                <td>Active</td>
-                <td><button type="button" class="btn btn-outline-danger" a asp-area="Administration" asp-controller="Exam" asp-action="Delete" asp-route-id="@exam.Id">Delete</button></td>
+                <td><button type="button" class="btn btn-success">Active</button></td>
+                <td><a class="btn btn-outline-danger" asp-area="Administration" asp-controller="Exam" asp-action="Delete" asp-route-id="@exam.Id">Delete</a></td>
                 <hidden @i++></hidden>
             </tr>
-
+            @(i++)
         }
     </tbody>
 </table>
