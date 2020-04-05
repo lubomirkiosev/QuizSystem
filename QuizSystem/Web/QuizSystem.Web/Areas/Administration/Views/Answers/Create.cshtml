@@ -1,0 +1,17 @@
+﻿@model QuizSystem.Web.ViewModels.Administration.Answers.AnswersCreateViewModel
+
+
+    <form method="post" asp-action="Create">
+        <div>
+            <label asp-for="AnswerA"></label>
+            <input asp-for="AnswerA" class="form-control" />
+            <span asp-validation-for="AnswerA" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="CorrectA"></label>
+            <input asp-for="CorrectA" class="form-control" />
+            <span asp-validation-for="CorrectA" class="text-danger"></span>
+        </div>
+        <hr />
+        <input type="submit" class="btn btn-primary" />
+    </form>

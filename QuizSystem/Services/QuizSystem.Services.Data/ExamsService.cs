@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Threading.Tasks;
 
     using QuizSystem.Data.Common.Repositories;
     using QuizSystem.Data.Models;
@@ -29,6 +30,21 @@
             }
 
             return query.To<T>().ToList();
+        }
+
+        public async Task<int> CreateAsync(string name, int questionCount, int timeLimit, DateTime? startTime)
+        {
+            var exam = new Exam
+            {
+                Name = name,
+                CountQuestion = questionCount,
+                TimeLimit = timeLimit,
+                StartTime = startTime,
+            };
+
+            await this.examRepository.AddAsync(exam);
+            await this.examRepository.SaveChangesAsync();
+            return exam.Id;
         }
     }
 }
