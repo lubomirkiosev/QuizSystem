@@ -1,0 +1,34 @@
+﻿@model QuizSystem.Web.ViewModels.Administration.Users.CollectionUserViewModel
+@{
+    this.ViewData["Title"] = "Admin dashboard";
+    int i = 1;
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Username</th>
+            <th scope="col">Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td></td>
+                <td>@user.Email</td>
+                <td>M</td>
+                <td>@user.UserName</td>
+                <td>@user.Id</td>
+                <td>Delete</td>
+                <td><button type="button" class="btn btn-outline-danger" a asp-area="Administration" asp-controller="Exam" asp-action="Delete">Delete</button></td>
+                <hidden @i ++></hidden>
+            </tr>
+
+        }
+    </tbody>
+</table>

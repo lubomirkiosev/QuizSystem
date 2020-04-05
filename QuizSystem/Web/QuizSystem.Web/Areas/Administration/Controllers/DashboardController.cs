@@ -6,16 +6,21 @@
 
     public class DashboardController : AdministrationController
     {
-        private readonly ISettingsService settingsService;
+        private readonly IExamsService examsService;
 
-        public DashboardController(ISettingsService settingsService)
+        public DashboardController(IExamsService examsService)
         {
-            this.settingsService = settingsService;
+            this.examsService = examsService;
         }
 
         public IActionResult Index()
         {
-            var viewModel = new IndexViewModel { SettingsCount = this.settingsService.GetCount(), };
+            var viewModel = new IndexViewModel
+            {
+                Exams =
+                    this.examsService.GetAll<AdminExamIndexViewModel>(),
+            };
+
             return this.View(viewModel);
         }
     }

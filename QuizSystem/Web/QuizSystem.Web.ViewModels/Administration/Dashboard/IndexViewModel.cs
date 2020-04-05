@@ -1,7 +1,9 @@
 ﻿namespace QuizSystem.Web.ViewModels.Administration.Dashboard
 {
+    using System.Collections.Generic;
+
     public class IndexViewModel
     {
-        public int SettingsCount { get; set; }
+       public IEnumerable<AdminExamIndexViewModel> Exams { get; set; }
     }
 }
