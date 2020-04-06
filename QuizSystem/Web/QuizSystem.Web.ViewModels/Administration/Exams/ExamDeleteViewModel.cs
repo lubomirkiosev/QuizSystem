@@ -1,15 +1,15 @@
-﻿namespace QuizSystem.Web.ViewModels.Administration.Exams
+﻿namespace QuizSystem.Web.ViewModels.Administration.Dashboard
 {
     using System;
     using System.Collections.Generic;
-    using System.Text;
 
     using QuizSystem.Data.Models;
     using QuizSystem.Services.Mapping;
-    using QuizSystem.Web.ViewModels.Administration.Questions;
 
-    public class CreateViewModel : IMapTo<Exam>
+    public class ExamDeleteViewModel : IMapFrom<Exam>
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public int CountQuestion { get; set; }

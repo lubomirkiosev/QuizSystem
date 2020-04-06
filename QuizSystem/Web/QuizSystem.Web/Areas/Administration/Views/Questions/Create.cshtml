@@ -3,17 +3,43 @@
     var exams = Model.ExamsNames.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
 }
 
-    <form method="post" asp-action="Create">
-        <div>
-            <label asp-for="ExamId"></label>
-            <select asp-for="ExamId" asp-items="exams" class="form-control"></select>
-            <span asp-validation-for="ExamId" class="text-danger"></span>
-        </div>
-        <div>
-            <label asp-for="Content"></label>
-            <input asp-for="Content" class="form-control" />
-            <span asp-validation-for="Content" class="text-danger"></span>
-        </div>
-        <hr />
-        <input type="submit" class="btn btn-primary" />
-    </form>
+<form method="post" asp-action="Create">
+    <div class="row col-8">
+        <label asp-for="ExamId"></label>
+        <select asp-for="ExamId" asp-items="exams" class="form-control"></select>
+        <span asp-validation-for="ExamId" class="text-danger"></span>
+    </div>
+
+    <div class="row col-8">
+        <label asp-for="Content"></label>
+        <input asp-for="Content" class="form-control" />
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <div class="row col-8">
+        <label asp-for="AnswerA"></label>
+        <input asp-for="AnswerA" class="form-control" />
+        <span asp-validation-for="AnswerA" class="text-danger"></span>
+        <label asp-for="IsCorrectA"></label>
+        <input asp-for="IsCorrectA" class="form-control" />
+        <span asp-validation-for="IsCorrectA" class="text-danger"></span>
+
+    </div>
+    <div class="row col-8">
+        <label asp-for="AnswerB"></label>
+        <input asp-for="AnswerB" class="form-control" />
+        <span asp-validation-for="AnswerB" class="text-danger"></span>
+        <label asp-for="IsCorrectB"></label>
+        <input asp-for="IsCorrectB" class="form-control" />
+        <span asp-validation-for="IsCorrectB" class="text-danger"></span>
+    </div>
+    <div class="row col-8">
+        <label asp-for="AnswerC"></label>
+        <input asp-for="AnswerC" class="form-control" />
+        <span asp-validation-for="AnswerC" class="text-danger"></span>
+        <label asp-for="IsCorrectC"></label>
+        <input asp-for="IsCorrectC" class="form-control" />
+        <span asp-validation-for="IsCorrectC" class="text-danger"></span>
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-primary" />
+</form>

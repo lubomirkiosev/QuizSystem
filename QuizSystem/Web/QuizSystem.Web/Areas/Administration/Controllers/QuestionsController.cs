@@ -44,9 +44,16 @@
             }
 
             var questionId = await this.questionsService
-                .CreateAsync(model.ExamId, model.Content);
+                .CreateAsync(model.ExamId, model.Content, model.AnswerA, 
+                             model.IsCorrectA, model.AnswerB, model.IsCorrectB, 
+                             model.AnswerC, model.IsCorrectC);
+            return this.RedirectToAction("CreateCompleted", "Questions", new { id = questionId });
+        }
 
-            return this.RedirectToAction("Create", "Answers", questionId);
+        public IActionResult CreateCompleted(int id)
+        {
+            var question = this.questionsService.GetById<CreateComplitedViewModel>(id);
+            return this.View(question);
         }
     }
 }

@@ -46,5 +46,29 @@
             await this.examRepository.SaveChangesAsync();
             return exam.Id;
         }
+
+        public T GetById<T>(int id)
+        {
+            var exam = this.examRepository.All().Where(x => x.Id == id)
+                .To<T>().FirstOrDefault();
+            return exam;
+        }
+
+        public async Task<int> Delete(int id)
+        {
+            var exam = this.examRepository.All().Where(x => x.Id == id)
+                .To<Exam>().FirstOrDefault();
+
+            return exam.Id;
+        }
+
+        public async Task DeleteConfirmed(int id)
+        {
+            var exam = this.examRepository.All().Where(x => x.Id == id).FirstOrDefault();
+            this.examRepository.Delete(exam);
+
+            this.examRepository.Delete(exam);
+            await this.examRepository.SaveChangesAsync();
+        }
     }
 }

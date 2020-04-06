@@ -1,15 +1,10 @@
-﻿namespace QuizSystem.Data.Models
+﻿namespace QuizSystem.Web.ViewModels.Administration.Questions
 {
-    using System.Collections.Generic;
+    using QuizSystem.Data.Models;
+    using QuizSystem.Services.Mapping;
 
-    using QuizSystem.Data.Common.Models;
-
-    public class Question : BaseDeletableModel<int>
+    public class CreateComplitedViewModel : IMapFrom<Question>
     {
-        public int ExamId { get; set; }
-
-        public Exam Exam { get; set; }
-
         public string Content { get; set; }
 
         public string AnswerA { get; set; }
@@ -23,7 +18,5 @@
         public string AnswerC { get; set; }
 
         public bool IsCorrectC { get; set; }
-
-
     }
 }

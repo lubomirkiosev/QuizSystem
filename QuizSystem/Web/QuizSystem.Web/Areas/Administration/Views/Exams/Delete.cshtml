@@ -1,0 +1,25 @@
+﻿@model QuizSystem.Web.ViewModels.Administration.Dashboard.ExamDeleteViewModel
+@{
+    this.ViewData["Title"] = "Admin dashboard";
+}
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header alert-primary">
+            <h5 class="modal-title">@Model.Name</h5>
+            <a asp-action="Index" asp-controller="Dashboard">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </a>
+        </div>
+        <div class="modal-body">
+            <p>Course: @Model.StartTime</p>
+            <p>Total Questions: @Model.CountQuestion</p>
+            <p>Time Limit: @Model.TimeLimit</p>
+        </div>
+        <div class="modal-footer">
+            <a type="button" class="btn btn-secondary" data-dismiss="modal" asp-action="Index" asp-controller="Dashboard">Close</a>
+            <a class="btn btn-danger" asp-action="DeleteConfirmed" asp-controller="Exams" asp-route-id="@Model.Id">Delete</a>
+        </div>
+    </div>
+</div>
